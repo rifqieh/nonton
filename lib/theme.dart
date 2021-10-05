@@ -21,10 +21,6 @@ TextStyle darkGreyTextStyle = GoogleFonts.nunito(
   color: darkGreyColor,
 );
 
-TextStyle whiteTextStyle = GoogleFonts.nunito(
-  color: whiteColor,
-);
-
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;
 FontWeight medium = FontWeight.w500;
