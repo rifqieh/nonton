@@ -22,14 +22,19 @@ class DetailPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: whiteColor,
-                  ),
-                  child: Icon(
-                    Icons.chevron_left,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: whiteColor,
+                    ),
+                    child: Icon(
+                      Icons.chevron_left,
+                    ),
                   ),
                 ),
                 Container(

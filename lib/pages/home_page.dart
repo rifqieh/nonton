@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nonton/services/movie_service.dart';
 import 'package:nonton/theme.dart';
 import 'package:nonton/widgets/movie_carousel_item.dart';
 import 'package:nonton/widgets/movie_list_item.dart';
@@ -8,6 +9,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MovieService().getPlayingNowMovies();
+
     return Scaffold(
       backgroundColor: lightBackgroundColor,
       body: SingleChildScrollView(

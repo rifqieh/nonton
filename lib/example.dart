@@ -17,7 +17,7 @@ void main() {
 
   final rifqi = UserModel.fromJson(rawJson);
 
-//   print(rifqi.email);
+  print(rifqi.email);
 }
 
 class UserModel {
@@ -37,6 +37,6 @@ class UserModel {
         name: json['name'] ?? '',
         email: json['email'] ?? '',
         id: json['id'] ?? 0,
-        birthDate: DateTime.parse(json['birtDate']) ?? DateTime.now(),
+        birthDate: DateTime.parse(json['birtDate']),
       );
 }
