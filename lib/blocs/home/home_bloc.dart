@@ -12,8 +12,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if (event is HomeGetMovies) {
         try {
           emit(HomeLoading());
-          final data = await MovieService().getPlayingNowMovies();
-          emit(HomeSuccess(data));
+          final playingNowMovies = await MovieService().getPlayingNowMovies();
+          final upcomingMovies = await MovieService().getUpcomingMovies();
+          emit(HomeSuccess(playingNowMovies, upcomingMovies));
         } catch (e) {
           emit(HomeFailed());
         }

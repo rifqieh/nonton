@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nonton/models/movie_model.dart';
 import 'package:nonton/pages/success_page.dart';
 import 'package:nonton/theme.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final MovieModel movie;
+
+  const DetailPage({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,107 +68,118 @@ class DetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(21),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/image_movie5.png',
-                      ),
+                      image: NetworkImage(movie.posterPath),
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'The Dark II',
-                      style: blackTextStyle.copyWith(
-                        fontSize: 20,
-                        fontWeight: extraBold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        movie.title,
+                        overflow: TextOverflow.ellipsis,
+                        style: blackTextStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: extraBold,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      DateFormat('MMM dd, yyyy').format(DateTime(2021, 9, 11)),
-                      style: greyTextStyle.copyWith(
-                        fontSize: 16,
+                      SizedBox(
+                        height: 4,
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: 10 >= 2 ? yellowColor : lightGreyColor,
-                          size: 18,
+                      Text(
+                        DateFormat('MMM dd, yyyy').format(movie.releaseDate),
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
                         ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: 10 >= 4 ? yellowColor : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: 10 >= 6 ? yellowColor : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: 10 >= 8 ? yellowColor : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: 10 >= 10 ? yellowColor : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          '13K',
-                          style: blackTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: bold,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 2
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
                           ),
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          'people',
-                          style: blackTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: light,
+                          SizedBox(
+                            width: 2,
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
-                      '1h 30min',
-                      style: blackTextStyle,
-                    ),
-                    Text(
-                      'Dolby Production',
-                      style: greyTextStyle,
-                    ),
-                  ],
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 4
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 6
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 8
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 10
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            movie.voteCount.toString(),
+                            style: blackTextStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: bold,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            'people',
+                            style: blackTextStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: light,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Text(
+                        '1h 30min',
+                        style: blackTextStyle,
+                      ),
+                      Text(
+                        'Dolby Production',
+                        style: greyTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -180,7 +197,7 @@ class DetailPage extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'The Dark is a 2018 Austrian horror film written and directed by Justin P. Lange and starring Nadia Alexander, Toby Nichols, and Karl Markovics.\n\ntrying to succeed as something both metaphorical and very literal-minded, the movie ends up being neither one.',
+              movie.overview,
               style: greyTextStyle.copyWith(
                 fontSize: 16,
                 height: 1.6,

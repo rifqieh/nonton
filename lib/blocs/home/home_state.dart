@@ -14,10 +14,11 @@ class HomeLoading extends HomeState {}
 class HomeFailed extends HomeState {}
 
 class HomeSuccess extends HomeState {
-  final List<MovieModel> data;
+  final List<MovieModel> nowPlayingMovies;
+  final List<MovieModel> upcomingMovies;
 
-  HomeSuccess(this.data);
+  HomeSuccess(this.nowPlayingMovies, this.upcomingMovies);
 
   @override
-  List<Object> get props => [data];
+  List<Object> get props => [nowPlayingMovies, upcomingMovies];
 }
