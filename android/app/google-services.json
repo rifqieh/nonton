@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480463441105",
+    "project_id": "nonton-4ea0a",
+    "storage_bucket": "nonton-4ea0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480463441105:android:995cd54f9f37bf4461c9f0",
+        "android_client_info": {
+          "package_name": "com.rifqieh.nonton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480463441105-b1vln63cm06lk5nf3ssh53ar176a1ave.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV285sHfFrITD1l98pMc4z8ylPsxkIbNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480463441105-b1vln63cm06lk5nf3ssh53ar176a1ave.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
